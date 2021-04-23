@@ -5,34 +5,16 @@ class Menu extends Phaser.Scene {
 
     preload() {
         // load audio
-        this.load.audio('sfx_select', './assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
-        this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_select', './assets/Select.mp3');
+        this.load.audio('bgm', './assets/Field.wav');
+        this.load.audio('sfx_gun', './assets/Gun.wav');
+        this.load.audio('sfx_death', './assets/Rat.mp3');
+        this.load.audio('sfx_blood', './assets/Splatter.wav');
+        this.load.image('background', './assets/Background.png');
     }
 
     create() {
-        // menu text configuration
-        let menuConfig = {
-            fontFamily: 'Comic Sans MS',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
-            align: 'right',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
-
-        // show menu text
-        this.add.text(game.config.width/2, 100, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 180, 'Player 1: Use ←→ arrows to move & ↓ to fire', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 260, 'Player 2: Use (A) and (D) to move & (S) to fire',menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
-        menuConfig.color = '#000';
-        this.add.text(game.config.width/2, 340, 'Press ← for Novice or → for Expert',
-            menuConfig).setOrigin(0.5);
+        this.starfield = this.add.tileSprite(0, 0, 640, 480, 'background').setOrigin(0,0);
 
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -44,7 +26,8 @@ class Menu extends Phaser.Scene {
             // easy mode
             game.settings = {
                 spaceshipSpeed: 3,
-                gameTimer: 60000
+                goldSpeed: 5,
+                gameTimer: 5000
             }
             this.sound.play('sfx_select');
             this.scene.start('playScene');    
@@ -54,6 +37,7 @@ class Menu extends Phaser.Scene {
             // hard mode
             game.settings = {
                 spaceshipSpeed: 4,
+                goldSpeed: 6,
                 gameTimer: 45000
             }
             this.sound.play('sfx_select');
