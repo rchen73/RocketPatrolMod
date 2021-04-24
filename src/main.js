@@ -27,7 +27,7 @@ Point Breakdown:
 30 Points - Implement a simultaneous two-player mode
             I added a second player with their corresponding score to the left.
 
-30 Points - Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points
+20 Points - Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points
             I added a smaller golden rat that moves faster despite the mode and is worth more points.
 
 Credits:
