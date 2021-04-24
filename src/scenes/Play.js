@@ -8,6 +8,7 @@ class Play extends Phaser.Scene {
         this.load.image('rocket', './assets/Bullet1.png');
         this.load.image('rocket2', './assets/Bullet2.png');
         this.load.image('spaceship', './assets/Rat.png');
+        this.load.image('spaceship2', './assets/RatTwo.png');
         this.load.image('starfield', './assets/Grass.png');
 
         // load spritesheet
@@ -38,7 +39,7 @@ class Play extends Phaser.Scene {
         this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0, 0);
 
         // add special spaceship
-        this.ship04 = new SpaceshipTwo(this, game.config.width, 110, 'spaceship', 0, 50).setOrigin(0, 0);
+        this.ship04 = new SpaceshipTwo(this, game.config.width, 110, 'spaceship2', 0, 50).setOrigin(0, 0);
 
         // blue borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0x4CCAFF).setOrigin(0, 0);
